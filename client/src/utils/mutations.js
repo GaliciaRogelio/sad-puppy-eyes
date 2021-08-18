@@ -67,3 +67,14 @@ export const ADD_REACTION = gql`
     }
   }
 `;
+
+export const ADD_PAYMENT = gql`
+  mutation addPayment($paymentAmount: String!) {
+    addPayment(paymentAmount: $paymentAmount) {
+      _id
+      paymentAmount
+      createdAt
+      username
+    }
+  }
+`;

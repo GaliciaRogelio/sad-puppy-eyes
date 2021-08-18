@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import SingleThought from "./pages/SingleThought";
+import SinglePayment from "./pages/SinglePayment";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 
@@ -53,6 +54,7 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/thought/:id" component={SingleThought} />
+              <Route exact path="/payment/:id" component={SinglePayment} />
               <Route component={NoMatch} />
             </Switch>
           </div>

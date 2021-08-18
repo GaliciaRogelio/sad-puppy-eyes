@@ -1,5 +1,8 @@
 import { gql } from "@apollo/client";
 
+// export const PAYMENT_OPTION = gql`
+//   query payOptions()
+
 export const QUERY_THOUGHTS = gql`
   query thoughts($username: String) {
     thoughts(username: $username) {
@@ -32,6 +35,28 @@ export const QUERY_THOUGHT = gql`
         username
         reactionBody
       }
+    }
+  }
+`;
+
+export const QUERY_PAYMENTS = gql`
+  query payments($username: String) {
+    payments(username: $username) {
+      _id
+      paymentAmount
+      createdAt
+      username
+    }
+  }
+`;
+
+export const QUERY_PAYMENT = gql`
+  query payment($id: ID!) {
+    payment(_id: $id) {
+      _id
+      paymentAmount
+      createdAt
+      username
     }
   }
 `;

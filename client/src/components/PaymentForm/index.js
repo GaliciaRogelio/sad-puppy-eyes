@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_THOUGHT } from "../../utils/mutations";
-import { QUERY_THOUGHTS, QUERY_ME } from "../../utils/queries";
+// import { ADD_THOUGHT } from "../../utils/mutations";
+// import { QUERY_THOUGHTS, QUERY_ME } from "../../utils/queries";
+import { ADD_PAYMENT } from "../../utils/mutations";
+import { QUERY_PAYMENTS, QUERY_ME } from "../../utils/queries";
 
-const ThoughtForm = () => {
-  const [thoughtText, setText] = useState("");
-  const [characterCount, setCharacterCount] = useState(0);
+// const ThoughtForm = () => {
+//   const [thoughtText, setText] = useState("");
+//   const [characterCount, setCharacterCount] = useState(0);
+const PaymentForm = () => {
+    const [paymentAmount, setAmount] = useState("");
+    const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
-    update(cache, { data: { addThought } }) {
+  const [addPayment, { error }] = useMutation(ADD_PAYMENT, {
+    update(cache, { data: { addPayment } }) {
       try {
         // could potentially not exist yet, so wrap in a try...catch
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        const { payments } = cache.readQuery({ query: QUERY_PAYMENTS });
         cache.writeQuery({
-          query: QUERY_THOUGHTS,
-          data: { thoughts: [addThought, ...thoughts] },
+          query: QUERY_PAYMENTS,
+          data: { payments: [addPayment, ...payments] },
         });
       } catch (e) {
         console.error(e);
@@ -24,14 +29,14 @@ const ThoughtForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+        data: { me: { ...me, payments: [...me.payments, addPayment] } },
       });
     },
   });
 
   const handleChange = (event) => {
     if (event.target.value.length <= 280) {
-      setText(event.target.value);
+      setAmount(event.target.value);
       setCharacterCount(event.target.value.length);
     }
   };
@@ -41,12 +46,12 @@ const ThoughtForm = () => {
 
     try {
       // add thought to database
-      await addThought({
-        variables: { thoughtText },
+      await addPayment({
+        variables: { paymentAmount },
       });
 
       // clear form value
-      setText("");
+      setAmount("");
       setCharacterCount(0);
     } catch (e) {
       console.error(e);
@@ -66,8 +71,8 @@ const ThoughtForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Here's a new thought..."
-          value={thoughtText}
+          placeholder="Add a donation ..."
+          value={paymentAmount}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
@@ -81,4 +86,4 @@ const ThoughtForm = () => {
 
 
 
-export default ThoughtForm;
+export default PaymentForm;
