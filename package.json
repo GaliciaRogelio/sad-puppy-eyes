@@ -23,5 +23,8 @@
   "homepage": "https://github.com/GaliciaRogelio/sad-puppy-eyes#readme",
   "devDependencies": {
     "concurrently": "^6.2.1"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.25.2"
   }
 }
