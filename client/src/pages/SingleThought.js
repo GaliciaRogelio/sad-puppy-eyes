@@ -1,20 +1,23 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_PAYMENT } from "../utils/queries";
-//import ReactionList from "../components/ReactionList";
-//import ReactionForm from "../components/ReactionForm";
+import { QUERY_THOUGHT } from "../utils/queries";
+import ReactionList from "../components/ReactionList";
+import ReactionForm from "../components/ReactionForm";
 import auth from "../utils/auth";
 
-const SinglePayment = (props) => {
-  const { id: paymentId } = useParams();
+
+// Reverting Back Thought Changes
+
+const SingleThought = (props) => {
+  const { id: thoughtId } = useParams();
   // console.log(thoughtId);
 
-  const { loading, data } = useQuery(QUERY_PAYMENT, {
-    variables: { id: paymentId },
+  const { loading, data } = useQuery(QUERY_THOUGHT, {
+    variables: { id: thoughtId },
   });
 
-  const payment = data?.payment || {};
+  const thought = data?.thought || {};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -25,21 +28,21 @@ const SinglePayment = (props) => {
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
-            {payment.username}
+            {thought.username}
           </span>{" "}
-          payment on {payment.createdAt}
+          thought on {thought.createdAt}
         </p>
         <div className="card-body">
-          <p>{payment.paymentAmount}</p>
+          <p>{thought.thoughtText}</p>
         </div>
       </div>
 
-      {/* {thought.reactionCount > 0 && (
+      {thought.reactionCount > 0 && (
         <ReactionList reactions={thought.reactions} />
       )}
-      {auth.loggedIn() && <ReactionForm thoughtId={thought._id} />} */}
+      {auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
     </div>
   );
 };
 
-export default SinglePayment;
+export default SingleThought;
