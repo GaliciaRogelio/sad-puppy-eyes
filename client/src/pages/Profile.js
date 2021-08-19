@@ -2,6 +2,7 @@ import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import ThoughtList from "../components/ThoughtList";
 import FriendList from "../components/FriendList";
+import PaymentForm from "../components/PaymentForm";
 import auth from "../utils/auth";
 import { ADD_FRIEND } from "../utils/mutations";
 import ThoughtForm from "../components/ThoughtForm";
@@ -65,6 +66,10 @@ const Profile = () => {
           <ThoughtList
             thoughts={user.thoughts}
             title={`${user.username}'s thoughts...`}
+          />
+          <PaymentForm
+            payments={user.payments}
+            title={`${user.username}'s donations...`}
           />
         </div>
 
