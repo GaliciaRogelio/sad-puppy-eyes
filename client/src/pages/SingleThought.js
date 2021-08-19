@@ -6,6 +6,7 @@ import { QUERY_PAYMENT } from "../utils/queries";
 //import ReactionForm from "../components/ReactionForm";
 import auth from "../utils/auth";
 
+//Reverting Back Changes Below 
 const SinglePayment = (props) => {
   const { id: paymentId } = useParams();
   // console.log(thoughtId);
