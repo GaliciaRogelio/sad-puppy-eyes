@@ -9,7 +9,7 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
           .populate("thoughts")
-     //     .populate("payments")
+          .populate("payments")
           .populate("friends");
 
         return userData;
@@ -24,15 +24,15 @@ const resolvers = {
     thought: async (parent, { _id }) => {
       return Thought.findOne({ _id });
     },
-    // payments: async (parent, { _id }) => {
-    //   return Payment.findOne({ _id });
-    // },
+    payments: async (parent, { _id }) => {
+      return Payment.findOne({ _id });
+    },
     // get all users
     users: async () => {
       return User.find()
         .select("-__v -password")
         .populate("friends")
-     //   .populate("payments")
+        .populate("payments")
         .populate("thoughts");
     },
     // get a user by username
@@ -40,7 +40,7 @@ const resolvers = {
       return User.findOne({ username })
         .select("-__v -password")
         .populate("friends")
-     //   .populate("payments")
+        .populate("payments")
         .populate("thoughts");
     },
   },
@@ -84,23 +84,23 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    // addPayment: async (parent, args, context) => {
-    //   if (context.user) {
-    //     const payment = await Payment.create({
-    //       ...args,
-    //       username: context.user.username,
-    //     });
+    addPayment: async (parent, args, context) => {
+      if (context.user) {
+        const payment = await Payment.create({
+          ...args,
+          username: context.user.username,
+        });
 
-    //     await User.findByIdAndUpdate(
-    //       { _id: context.user._id },
-    //       { $push: { payments: payment._id } },
-    //       { new: true }
-    //     );
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { payments: payment._id } },
+          { new: true }
+        );
 
-    //     return payment;
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+        return payment;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
     addFriend: async (parent, { friendId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(

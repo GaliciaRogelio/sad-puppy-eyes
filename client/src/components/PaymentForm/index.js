@@ -71,7 +71,7 @@ const PaymentForm = () => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Add a donation ..."
+          placeholder="Other Amount ..."
           value={paymentAmount}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
