@@ -12,6 +12,13 @@ const typeDefs = gql`
     reactions: [Reaction]
   }
 
+  type Payment {
+    _id: ID
+    paymentAmount: String
+    createdAt: String
+    username: String
+  }
+
   type Reaction {
     _id: ID
     reactionBody: String

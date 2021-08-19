@@ -1,11 +1,12 @@
 const faker = require('faker');
 
 const db = require('../config/connection');
-const { Thought, User } = require('../models');
+const { Thought, Payment, User } = require('../models');
 
 db.once('open', async () => {
   await Thought.deleteMany({});
   await User.deleteMany({});
+  await Payment.deleteMany({});
 
   // create user data
   const userData = [];
@@ -51,6 +52,24 @@ db.once('open', async () => {
     );
 
     createdThoughts.push(createdThought);
+  }
+
+  // create Payments
+  let createdPayments = [];
+  for (let i = 0; i < 100; i += 1) {
+    const paymentAmount = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+
+    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
+    const { username, _id: userId } = createdUsers.ops[randomUserIndex];
+
+    const createdPayment = await Payment.create({ paymentAmount, username });
+
+    const updatedUser = await User.updateOne(
+      { _id: userId },
+      { $push: { payments: createdPayment._id } }
+    );
+
+    createdPayments.push(createdPayment);
   }
 
   // create reactions
