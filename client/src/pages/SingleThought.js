@@ -18,8 +18,7 @@ const SinglePayment = (props) => {
 
   const thought = data?.thought || {};
   const payment = data?.payment || {};
-
-// Reverting Back Thought Changes
+};
 
 const SingleThought = (props) => {
   const { id: thoughtId } = useParams();
@@ -52,13 +51,7 @@ const SingleThought = (props) => {
       {thought.reactionCount > 0 && (
         <ReactionList reactions={thought.reactions} />
       )}
-
       {auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
-      <div className="card mb-3">
-        <p className="card-header">
-          <span style={{ fontWeight: 700 }} className="text-light">
-            {payment.username}
-          
     </div>
   );
 };
