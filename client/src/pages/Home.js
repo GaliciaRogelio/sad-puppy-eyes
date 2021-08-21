@@ -1,11 +1,11 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_THOUGHTS, QUERY_ME_BASIC } from "../utils/queries";
-import ThoughtList from "../components/ThoughtList";
+import PostHelpList from "../components/PostHelpList";
 import PaymentForm from "../components/PaymentForm";
 import auth from "../utils/auth";
 import FriendList from "../components/FriendList";
-import ThoughtForm from "../components/ThoughtForm";
+import PostHelp from "../components/PostHelp";
 
 const Home = () => {
   // use useQuery hook to make query request
@@ -19,31 +19,30 @@ const Home = () => {
   const loggedIn = auth.loggedIn();
 
   return (
-    // <main>
-    //   <div className="flex-row justify-space-between">
-    //     {loggedIn && (
-    //       <div className="col-12 mb-13">
-    //         <ThoughtForm />
-    //       </div>
-    //     )}
-    //     <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
-    //       {loading ? (
-    //         <div>Loading...</div>
-    //       ) : (
-    //         <ThoughtList
-    //           thoughts={thoughts}
-    //           title="Some Feed for Thought(s)..."
-    //         />
-    //       )}
-    //     </div>
     <main>
-    <div className="flex-row justify-space-between">
-      {/* {loggedIn && (
+      <div className="flex-row justify-space-between">
+        {loggedIn && (
+          <div className="col-12 mb-13">
+            <PostHelp />
+          </div>
+        )}
+        <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <PostHelpList
+              thoughts={thoughts}
+              title="Some Feed for Thought(s)..."
+            />
+          )}
+        </div>
+        {/* <div className="flex-row justify-space-between"> */}
+        {/* {loggedIn && (
         <div className="col-12 mb-13">
           <PaymentForm />
         </div>
       )} */}
-      <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
+        {/* <div className={`col-12 mb-3 ${loggedIn && "col-lg-8"}`}>
         {loading ? (
           <div>Loading...</div>
         ) : (
@@ -52,8 +51,8 @@ const Home = () => {
             title="Donate today ..."
           />
         )}
-      </div>
-        {/* {loggedIn && userData ? (
+      </div> */}
+        {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
             <FriendList
               username={userData.me.username}
@@ -61,7 +60,7 @@ const Home = () => {
               friends={userData.me.friends}
             />
           </div>
-        ) : null} */}
+        ) : null}
       </div>
     </main>
   );

@@ -1,11 +1,23 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_THOUGHT } from "../utils/queries";
+import { QUERY_PAYMENT, QUERY_THOUGHT } from "../utils/queries";
+
 import ReactionList from "../components/ReactionList";
 import ReactionForm from "../components/ReactionForm";
 import auth from "../utils/auth";
 
+const SinglePayment = (props) => {
+  const { id: thoughtId } = useParams();
+  const { id: paymentId } = useParams();
+  // console.log(thoughtId);
+
+  const { loading, data } = useQuery(QUERY_THOUGHT, {
+    variables: { id: thoughtId, id: paymentId },
+  });
+
+  const thought = data?.thought || {};
+  const payment = data?.payment || {};
 
 // Reverting Back Thought Changes
 
@@ -40,7 +52,13 @@ const SingleThought = (props) => {
       {thought.reactionCount > 0 && (
         <ReactionList reactions={thought.reactions} />
       )}
+
       {auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
+      <div className="card mb-3">
+        <p className="card-header">
+          <span style={{ fontWeight: 700 }} className="text-light">
+            {payment.username}
+          
     </div>
   );
 };
