@@ -49,7 +49,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addThought(thoughtText: String!): Thought
     addPayment(paymentAmount: String!): Payment
-    addReaction(thoughtId: ID!, reactionBody: String!): Thought
+    addReaction(postId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
   }
 

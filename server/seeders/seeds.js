@@ -80,10 +80,10 @@ db.once('open', async () => {
     const { username } = createdUsers.ops[randomUserIndex];
 
     const randomThoughtIndex = Math.floor(Math.random() * createdThoughts.length);
-    const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
+    const { _id: postId } = createdThoughts[randomThoughtIndex];
 
     await Thought.updateOne(
-      { _id: thoughtId },
+      { _id: postId },
       { $push: { reactions: { reactionBody, username } } },
       { runValidators: true }
     );

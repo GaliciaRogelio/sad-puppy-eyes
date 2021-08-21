@@ -32,7 +32,7 @@ const Home = () => {
           ) : (
             <PostHelpList
               thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
+              title="Pups Need Your Help!"
             />
           )}
         </div>
