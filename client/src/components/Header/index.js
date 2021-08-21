@@ -19,7 +19,7 @@ const Header = () => {
             <>
               <Link to="/profile">Me</Link>
               {/* added the link to the page that needs to be created */}
-              {/* <link to="/payment">Add card</link> */}
+              {/* <link to="/payment/:id">Add card</link> */}
               <a href="/" onClick={logout}>Logout</a>
             </>
           ) : (
