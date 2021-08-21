@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_REACTION } from "../../utils/mutations";
 
-const ReactionForm = ({ thoughtId }) => {
+const ReactionForm = ({ postId }) => {
   const [reactionBody, setBody] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -21,7 +21,7 @@ const ReactionForm = ({ thoughtId }) => {
     try {
       // add reaction to databse
       await addReaction({
-        variables: { reactionBody, thoughtId },
+        variables: { reactionBody, postId },
       });
 
       // clear form value
@@ -40,12 +40,25 @@ const ReactionForm = ({ thoughtId }) => {
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
+      <h2>Donate to this post?</h2>
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
+      <button className="btn col-12 col-md-2" type="submit">
+          $25
+        </button>
+      <button className="btn col-12 col-md-2" type="submit">
+          $35
+        </button>
+      <button className="btn col-12 col-md-2" type="submit">
+          $50
+        </button>
+      <button className="btn col-12 col-md-2" type="submit">
+          $100
+        </button>
         <textarea
-          placeholder="Leave a reaction to this thought..."
+          placeholder="Share your thoughts"
           value={reactionBody}
           className="form-input col-12 col-md-9"
           onChange={handleChange}

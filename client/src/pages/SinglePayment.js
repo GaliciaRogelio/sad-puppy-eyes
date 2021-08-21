@@ -8,7 +8,7 @@ import auth from "../utils/auth";
 
 const SinglePayment = (props) => {
   const { id: paymentId } = useParams();
-  // console.log(thoughtId);
+  // console.log(postId);
 
   const { loading, data } = useQuery(QUERY_PAYMENT, {
     variables: { id: paymentId },
@@ -37,7 +37,7 @@ const SinglePayment = (props) => {
       {/* {thought.reactionCount > 0 && (
         <ReactionList reactions={thought.reactions} />
       )}
-      {auth.loggedIn() && <ReactionForm thoughtId={thought._id} />} */}
+      {auth.loggedIn() && <ReactionForm postId={thought._id} />} */}
     </div>
   );
 };

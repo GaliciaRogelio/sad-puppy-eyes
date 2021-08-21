@@ -8,24 +8,24 @@ import ReactionForm from "../components/ReactionForm";
 import auth from "../utils/auth";
 
 const SinglePayment = (props) => {
-  const { id: thoughtId } = useParams();
+  const { id: postId } = useParams();
   const { id: paymentId } = useParams();
-  // console.log(thoughtId);
+  // console.log(postId);
 
   const { loading, data } = useQuery(QUERY_THOUGHT, {
-    variables: { id: thoughtId, id: paymentId },
+    variables: { id: postId, id: paymentId },
   });
 
   const thought = data?.thought || {};
   const payment = data?.payment || {};
 };
 
-const SingleThought = (props) => {
-  const { id: thoughtId } = useParams();
-  // console.log(thoughtId);
+const SinglePost = (props) => {
+  const { id: postId } = useParams();
+  // console.log(postId);
 
   const { loading, data } = useQuery(QUERY_THOUGHT, {
-    variables: { id: thoughtId },
+    variables: { id: postId },
   });
 
   const thought = data?.thought || {};
@@ -51,9 +51,9 @@ const SingleThought = (props) => {
       {thought.reactionCount > 0 && (
         <ReactionList reactions={thought.reactions} />
       )}
-      {auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
+      {auth.loggedIn() && <ReactionForm postId={thought._id} />}
     </div>
   );
 };
 
-export default SingleThought;
+export default SinglePost;
