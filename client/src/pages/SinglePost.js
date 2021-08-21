@@ -7,18 +7,18 @@ import ReactionList from "../components/ReactionList";
 import ReactionForm from "../components/ReactionForm";
 import auth from "../utils/auth";
 
-const SinglePayment = (props) => {
-  const { id: postId } = useParams();
-  const { id: paymentId } = useParams();
-  // console.log(postId);
+// const SinglePayment = (props) => {
+//   const { id: postId } = useParams();
+//   const { id: paymentId } = useParams();
+//   // console.log(postId);
 
-  const { loading, data } = useQuery(QUERY_THOUGHT, {
-    variables: { id: postId, id: paymentId },
-  });
+//   const { loading, data } = useQuery(QUERY_THOUGHT, {
+//     variables: { id: postId, id: paymentId },
+//   });
 
-  const thought = data?.thought || {};
-  const payment = data?.payment || {};
-};
+//   const thought = data?.thought || {};
+//   const payment = data?.payment || {};
+// };
 
 const SinglePost = (props) => {
   const { id: postId } = useParams();
