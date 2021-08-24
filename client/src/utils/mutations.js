@@ -78,3 +78,32 @@ export const ADD_PAYMENT = gql`
     }
   }
 `;
+
+export const ADD_PAYTYPE = gql`
+  mutation addPaymentType($cardNumber: Number!, 
+                          $expirationDate: Date!,
+                          $cvv: String!,
+                          $firstName: String!,
+                          $lastName: String!,
+                          $streetFirst: String!,
+                          $streetSecond: String!,
+                          $city: String!,
+                          $state: String!,
+                          $postal: String!) {
+      addPaymentType(cardNumber: $cardNumber, 
+        expirationDate: $expirationDate,
+        cvv: $cvv,
+        firstName: $firstName,
+        lastName: $lastName,
+        streetFirst: $streetFirst,
+        streetSecond: $streetSecond,
+        city: $city,
+        state: $state,
+        postal: $postal) {
+          _id
+          token
+          username
+
+      }
+    }
+`;
