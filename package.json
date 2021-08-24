@@ -24,5 +24,7 @@
   "devDependencies": {
     "concurrently": "^6.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "apollo-server-express": "^2.25.2"
+  }
 }
