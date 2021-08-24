@@ -1,0 +1,28 @@
+{
+  "name": "sad-puppy-eyes",
+  "version": "1.0.0",
+  "description": "## Project 3: Coding Requirements - Must Include authentication (JWT) - Must use MongoDB and the Mongoose ODM for the database - Must use GraphQL with a Node.js and Express.js server - Must use queries and mutations for retrieving, adding, updating, and deleting data - Must be deployed using Heroku (with data) - Must have a polished UI - Must be interactive (i.e., accept and respond to user input)",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "cd client && npm run build",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaliciaRogelio/sad-puppy-eyes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GaliciaRogelio/sad-puppy-eyes/issues"
+  },
+  "homepage": "https://github.com/GaliciaRogelio/sad-puppy-eyes#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.1"
+  },
+  "dependencies": {}
+}
