@@ -42,6 +42,7 @@ const typeDefs = gql`
     thoughts(username: String): [Thought]
     thought(_id: ID!): Thought
     payments(username: String): [Payment]
+    }
   }
 
   type Mutation {
@@ -57,6 +58,8 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+
+
 `;
 
 // export the typeDefs
