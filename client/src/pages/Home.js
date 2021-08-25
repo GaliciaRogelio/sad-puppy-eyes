@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-space-between">
+      <div className="home flex-row justify-space-between">
         {loggedIn && (
           <div className="col-12 mb-13">
             <PostHelp />
