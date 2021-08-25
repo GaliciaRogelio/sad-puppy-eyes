@@ -7,6 +7,8 @@ import auth from "../utils/auth";
 import FriendList from "../components/FriendList";
 import PostHelp from "../components/PostHelp";
 
+
+
 const Home = () => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_THOUGHTS);
@@ -35,6 +37,7 @@ const Home = () => {
               title="Pups Need Your Help!"
             />
           )}
+      
         </div>
         {/* <div className="flex-row justify-space-between"> */}
         {/* {loggedIn && (
