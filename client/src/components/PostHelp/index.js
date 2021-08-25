@@ -3,9 +3,13 @@ import { useMutation } from "@apollo/client";
 import { ADD_THOUGHT } from "../../utils/mutations";
 import { QUERY_THOUGHTS, QUERY_ME } from "../../utils/queries";
 
+import Axios from "axios";
+import { Image } from "cloudinary-react";
+
 const ThoughtForm = () => {
   const [thoughtText, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
+  const [imageSelected, setImageSelected] = useState("");
 
   const [addThought, { error }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
@@ -42,15 +46,30 @@ const ThoughtForm = () => {
     try {
       // add thought to database
       await addThought({
-        variables: { thoughtText },
+        variables: { thoughtText, imageSelected },
       });
 
       // clear form value
       setText("");
       setCharacterCount(0);
+      setImageSelected(0);
     } catch (e) {
       console.error(e);
     }
+  };
+
+  const uploadImage = () => {
+    // console.log(files[0])
+    const formData = new FormData();
+    formData.append("file", imageSelected);
+    formData.append("upload_preset", "sadpuppyeyes");
+
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/rogeliog/image/upload",
+      formData
+    ).then((response) => {
+      console.log(response);
+    });
   };
 
   return (
@@ -61,6 +80,14 @@ const ThoughtForm = () => {
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
+      <input
+        type="file"
+        onChange={(e) => {
+          setImageSelected(e.target.files[0]);
+        }}
+      />
+      <button onClick={uploadImage}>Upload Image</button>
+      <Image cloudName="rogeliog" publicId="https://res.cloudinary.com/rogeliog/image/upload/v1629913792/aaxj0rfqiinbkb0u2nkm.jpg" /> 
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
@@ -78,7 +105,5 @@ const ThoughtForm = () => {
     </div>
   );
 };
-
-
 
 export default ThoughtForm;
