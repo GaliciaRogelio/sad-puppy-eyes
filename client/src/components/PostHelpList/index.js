@@ -8,7 +8,7 @@ const ThoughtList = ({ thoughts, title }) => {
 
   return (
     <div>
-      <h3>{title}</h3>
+      <h3 className="postListTitle">{title}</h3>
       {thoughts &&
         thoughts.map((thought) => (
           <div key={thought._id} className="card mb-3">

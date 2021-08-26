@@ -55,18 +55,12 @@ const ThoughtForm = () => {
 
   return (
     <div>
-      <p
-        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
-      >
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Need help with your pet? post here!"
+          placeholder="Need help with your pet? Woof here!" 
           value={thoughtText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
@@ -74,8 +68,16 @@ const ThoughtForm = () => {
         <button className="btn col-12 col-md-3" type="submit">
           Submit
         </button>
+        <div className="characterCount">
+      <p
+        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
+      >
+        {characterCount}/280 characters
+        {error && <span className="failed ml-2">Something went wrong...</span>}
+      </p>
+      </div>
       </form>
-    </div>
+      </div>
   );
 };
 
