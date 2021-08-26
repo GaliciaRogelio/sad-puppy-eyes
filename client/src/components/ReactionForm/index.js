@@ -35,12 +35,12 @@ const ReactionForm = ({ postId }) => {
   return (
     <div>
       <p
-        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
+        className={`m-0 characterCount ${characterCount === 280 || error ? "text-error" : ""}`}
       >
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
-      <h2>Donate to this post?</h2>
+      <h2 className="donate">Donate to this post?</h2>
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}

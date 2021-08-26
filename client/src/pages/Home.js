@@ -34,7 +34,7 @@ const Home = () => {
           ) : (
             <PostHelpList
               thoughts={thoughts}
-              title="Pups Need Your Help!"
+              title="These Pups Need Your Help!"
             />
           )}
       
