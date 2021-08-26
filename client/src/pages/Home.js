@@ -7,6 +7,8 @@ import auth from "../utils/auth";
 import FriendList from "../components/FriendList";
 import PostHelp from "../components/PostHelp";
 
+
+
 const Home = () => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_THOUGHTS);
@@ -20,7 +22,7 @@ const Home = () => {
 
   return (
     <main>
-      <div className="flex-row justify-space-between">
+      <div className="home flex-row justify-space-between">
         {loggedIn && (
           <div className="col-12 mb-13">
             <PostHelp />
@@ -32,9 +34,10 @@ const Home = () => {
           ) : (
             <PostHelpList
               thoughts={thoughts}
-              title="Pups Need Your Help!"
+              title="These Pups Need Your Help!"
             />
           )}
+      
         </div>
         {/* <div className="flex-row justify-space-between"> */}
         {/* {loggedIn && (

@@ -4,12 +4,18 @@ import { Link } from "react-router-dom";
 const FriendList = ({ friendCount, username, friends }) => {
   if (!friends || !friends.length) {
     return (
+
       <p className="bg-dark text-light p-3">{username} has no contacts.</p>
+
+      <div className="emptyFriendList">
+      <p className="failed text-light p-3">{username}, make some littermates!</p>
+      </div>
+
     );
   }
 
   return (
-    <div>
+    <div className="friendList bg-dark">
       <h5>
         {username}'s {friendCount} {friendCount === 1 ? "friend" : "friends"}
       </h5>

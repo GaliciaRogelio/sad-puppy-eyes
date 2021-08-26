@@ -123,3 +123,32 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($products: [ID]!) {
+    checkout(products: $products) {
+      session
+    }
+  }
+`;
+
+// export const QUERY_PAYTYPE = gql`
+//   query PAYTYPE($username: String!) {
+//     user(username: $username) {
+//       _id
+//       username
+//       email
+//       friendCount
+//       friends {
+//         _id
+//         username
+//       }
+//       thoughts {
+//         _id
+//         thoughtText
+//         createdAt
+//         reactionCount
+//       }
+//     }
+//   }
+// `;

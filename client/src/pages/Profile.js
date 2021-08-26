@@ -41,8 +41,8 @@ const Profile = () => {
 
   if (!user?.username) {
     return (
-      <h4>
-        You need to be logged in to see this page. Use the navigation links
+      <h4 className="failed">
+        You must be logged in to see this page. Use the navigation links
         above to sign up or log in!
       </h4>
     );
@@ -51,12 +51,12 @@ const Profile = () => {
   return (
     <div>
       <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
+        <h2 className="profile p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
         {userParam && (
           <button className="btn ml-auto" onClick={handleClick}>
-            Add Friend
+            Add Littermate
           </button>
         )}
       </div>
@@ -65,7 +65,9 @@ const Profile = () => {
         <div className="col-12 mb-3 col-lg-8">
           <PostHelpList
             thoughts={user.thoughts}
-            title={`${user.username}'s posts`}
+
+            title={`${user.username}'s woofs...`}
+
           />
           {/* <PaymentForm
             payments={user.payments}
