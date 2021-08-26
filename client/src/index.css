@@ -28,6 +28,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
@@ -41,11 +42,13 @@ h3,
 h4,
 h5,
 h6 {
+
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
   margin: 5px 0;
   line-height: 1.25;
   letter-spacing: 0.2em
+
 }
 
 .jumbotron {
@@ -64,6 +67,7 @@ h6 {
   font-style: italic;
 }
 
+
 #header-img {
   background-image: url('./assets/images/header-img.png');
   background-size: contain;
@@ -80,6 +84,7 @@ h6 {
 }
 
 h1 {
+
   font-family: 'Hina Mincho', serif;
   font-size: 2.25rem;
   padding-left: 2rem;
@@ -275,13 +280,13 @@ form {
   border-radius: var(--border-radius);
 }
 
-[type='radio']:checked,
-[type='radio']:not(:checked) {
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
   position: absolute;
   left: -9999px;
 }
-[type='radio']:checked + label,
-[type='radio']:not(:checked) + label {
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
   position: relative;
   padding-left: 25px;
   cursor: pointer;
@@ -291,9 +296,9 @@ form {
   margin-right: 0.2rem;
 }
 
-[type='radio']:checked + label:before,
-[type='radio']:not(:checked) + label:before {
-  content: '';
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -303,9 +308,9 @@ form {
   border-radius: 100%;
   background: #fff;
 }
-[type='radio']:checked + label:after,
-[type='radio']:not(:checked) + label:after {
-  content: '';
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: "";
   width: 12px;
   height: 12px;
   background-color: var(--secondary);
@@ -317,13 +322,13 @@ form {
   transition: all 0.2s ease;
 }
 
-[type='radio']:not(:checked) + label:after {
+[type="radio"]:not(:checked) + label:after {
   opacity: 0;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-[type='radio']:checked + label:after {
+[type="radio"]:checked + label:after {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -344,6 +349,7 @@ form {
     15% { transform: skewX(15deg); }
     20% { transform: skewX(0deg); }
     100% { transform: skewX(0deg); }  
+
 }
 
 /* LAYOUT */
@@ -1012,7 +1018,9 @@ form {
 }
 
 .footer {
-  /* text-align: center; */
+
+  text-align: center;
+
 }
 
 /* col-sm */
