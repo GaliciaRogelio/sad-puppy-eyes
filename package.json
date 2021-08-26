@@ -1,7 +1,7 @@
 {
-  "name": "deep-thoughts",
+  "name": "sad-puppy-eyes",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Project 3: Coding Requirements - Must Include authentication (JWT) - Must use MongoDB and the Mongoose ODM for the database - Must use GraphQL with a Node.js and Express.js server - Must use queries and mutations for retrieving, adding, updating, and deleting data - Must be deployed using Heroku (with data) - Must have a polished UI - Must be interactive (i.e., accept and respond to user input)",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -25,6 +25,9 @@
     "concurrently": "^6.2.1"
   },
   "dependencies": {
-    "apollo-server-express": "^2.25.2"
+    "@stripe/stripe-js": "^1.17.1",
+    "apollo-server-express": "^2.25.2",
+    "next": "^11.1.0",
+    "stripe": "^8.170.0"
   }
 }

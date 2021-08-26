@@ -26,7 +26,8 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
+
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
@@ -40,11 +41,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif;
+
+  font-family: 'Poppins', sans-serif;
   font-weight: 900;
   margin: 5px 0;
   line-height: 1.25;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2em
+
 }
 
 .jumbotron {
@@ -54,8 +57,10 @@ h6 {
   align-items: center;
 }
 
+
+
 #header-img {
-  background-image: url("./assets/images/header-img.png");
+  background-image: url('./assets/images/header-img.png');
   background-size: contain;
   background-repeat: no-repeat;
   height: 8rem;
@@ -64,7 +69,8 @@ h6 {
 }
 
 h1 {
-  font-family: "Hina Mincho", serif;
+
+  font-family: 'Hina Mincho', serif;
   font-size: 2.25rem;
   padding-left: 2.5rem;
 }
@@ -268,24 +274,13 @@ nav a:hover {
 }
 
 @keyframes shake {
-  0% {
-    transform: skewX(-15deg);
-  }
-  5% {
-    transform: skewX(15deg);
-  }
-  10% {
-    transform: skewX(-15deg);
-  }
-  15% {
-    transform: skewX(15deg);
-  }
-  20% {
-    transform: skewX(0deg);
-  }
-  100% {
-    transform: skewX(0deg);
-  }
+    0% { transform: skewX(-15deg); }
+    5% { transform: skewX(15deg); }
+    10% { transform: skewX(-15deg); }
+    15% { transform: skewX(15deg); }
+    20% { transform: skewX(0deg); }
+    100% { transform: skewX(0deg); }  
+
 }
 
 /* LAYOUT */
@@ -954,7 +949,9 @@ nav a:hover {
 }
 
 .footer {
+
   text-align: center;
+
 }
 
 /* col-sm */
