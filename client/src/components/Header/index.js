@@ -23,13 +23,14 @@ const Header = () => {
           {auth.loggedIn() ? (
             <>
               <Link to="/profile">Me</Link>
+              <Link to="/card">Add Card</Link>
               {/* added the link to the page that needs to be created */}
               {/* <link to="/payment/:id">Add card</link> */}
               <a href="/" onClick={logout}>Logout</a>
             </>
           ) : (
             <>
-              <Link to="/card">Add Card</Link>
+              
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
             </>

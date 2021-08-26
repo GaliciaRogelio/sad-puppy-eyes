@@ -3,8 +3,10 @@
   --secondary: #1d263b;
   --tertiary: #5c6784;
   --quatrinary: #4cb963;
-  --light: white;
-  --med-light: #c6c6c6;
+
+  --light: rgb(87, 73, 73);
+
+
   --dark: black;
   --error: rgb(255, 51, 0);
   --border-radius: 0.3rem;
