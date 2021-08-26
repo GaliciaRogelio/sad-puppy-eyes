@@ -10,9 +10,13 @@ const Header = () => {
   return (
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <Link to="/">
-          <h1>Sad Puppy Eyes</h1>
-        </Link>
+        <div className="jumbotron">
+          <div id="header-img">
+          </div>
+          <Link to="/">
+            <h1>Sad Puppy Eyes</h1>
+          </Link>
+        </div>
 
         <nav className="text-center">
           {auth.loggedIn() ? (
@@ -24,7 +28,7 @@ const Header = () => {
             </>
           ) : (
             <>
-            {/*<Link to="/paymentDetails>Payment Details</Link>" */}
+              <Link to="/card">Add Card</Link>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
             </>
