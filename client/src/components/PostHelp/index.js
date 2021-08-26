@@ -87,7 +87,7 @@ const ThoughtForm = () => {
         }}
       />
       <button onClick={uploadImage}>Upload Image</button>
-      <Image cloudName="rogeliog" publicId="https://res.cloudinary.com/rogeliog/image/upload/v1629913792/aaxj0rfqiinbkb0u2nkm.jpg" /> 
+      <Image style={{width: 300, height: 300}} cloudName="rogeliog" publicId="https://res.cloudinary.com/rogeliog/image/upload/v1629913792/aaxj0rfqiinbkb0u2nkm.jpg" /> 
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}

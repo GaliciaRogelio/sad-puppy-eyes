@@ -16,6 +16,7 @@ import SinglePost from "./pages/SinglePost";
 import SinglePayment from "./pages/SinglePayment";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
+import PaymentDetails from "./pages/PaymentDetails";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -52,6 +53,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/card" component={PaymentDetails} />
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/thought/:id" component={SinglePost
             } />
