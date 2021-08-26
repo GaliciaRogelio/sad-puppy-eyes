@@ -4,7 +4,7 @@ import { ADD_PAYTYPE } from "../utils/mutations";
 import auth from "../utils/auth";
 
 
-  const PayType = () => {
+  const PaymentDetails = () => {
     const [formState, setFormState] = useState({
       cardNumber: "",
       expirationDate: "",
@@ -166,4 +166,4 @@ import auth from "../utils/auth";
   );
 };
 
-export default PayType;
+export default PaymentDetails;
