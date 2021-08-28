@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_USER } from "../utils/mutations";
+import { ADD_CARD } from "../utils/mutations";
 import auth from "../utils/auth";
 
 const Signup = () => {
@@ -8,7 +8,7 @@ const Signup = () => {
     cardNumber: "",
   });
 
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const [addCard, { error }] = useMutation(ADD_CARD);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -27,7 +27,7 @@ const Signup = () => {
     // use try/catch instead of promises to handle errors
     try {
       // execute addUser mutation and pass in variable data from form
-      const { data } = await addUser({
+      const { data } = await addCard({
         variables: { ...formState },
       });
 
@@ -49,8 +49,8 @@ const Signup = () => {
                 className="form-input"
                 placeholder="Your card number"
                 name="cardNumber"
-                type="cardNumbe"
-                id="cardNumbe"
+                type="cardNumber"
+                id="cardNumber"
                 value={formState.cardNumbe}
                 onChange={handleChange}
               />

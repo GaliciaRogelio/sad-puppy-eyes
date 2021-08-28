@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_CARD = gql`
-  mutation addCard($username: String!, $email: String!, $password: String!, $cardNumber: String!) {
-    addCard(username: $username, email: $email, password: $password, cardNumber: $cardNumber) {
+  mutation addCard($cardNumber: String!) {
+    addCard(cardNumber: $cardNumber) {
       token
       user {
         _id
