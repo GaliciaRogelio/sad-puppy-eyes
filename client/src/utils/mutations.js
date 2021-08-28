@@ -27,11 +27,8 @@ export const ADD_USER = gql`
 export const ADD_CARD = gql`
   mutation addCard($cardNumber: String!) {
     addCard(cardNumber: $cardNumber) {
-      token
-      user {
-        _id
-        username
-      }
+      _id
+      cardNumber
     }
   }
 `;

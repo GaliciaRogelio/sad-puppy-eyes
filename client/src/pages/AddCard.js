@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_CARD } from "../utils/mutations";
 import auth from "../utils/auth";
 
-const Signup = () => {
+const AddCard = () => {
   const [formState, setFormState] = useState({
     cardNumber: "",
   });
@@ -67,4 +67,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default AddCard;

@@ -85,29 +85,14 @@ export const QUERY_USER = gql`
   }
 `;
 
-// export const QUERY_ADD_CARD = gql`
-//   query user($username: String!) {
-//     user(username: $username) {
-//       _id
-//       username
-//       email
-//       friendCount
-//       friends {
-//         _id
-//         username
-//       }
-//       thoughts {
-//         _id
-//         thoughtText
-//         createdAt
-//         reactionCount
-//       }
-//       paydetails {
-//         _id
-//       }
-//     }
-//   }
-// `;
+export const QUERY_ADD_CARD = gql`
+  query addCard($cardNumber: String!) {
+    addCard(cardNumber: $cardNumber) {
+      _id
+      cardNumber
+    }
+  }
+`;
 
 
 
