@@ -1,7 +1,7 @@
 const User = require('./User');
-
+const AddCard = require('./AddCard');
 const Thought = require('./Thought');
 const Payment = require('./Payment');
-const PayDetails = require('./PayDetails')
 
-module.exports = { User, Thought, Payment, PayDetails};
+
+module.exports = { User, Thought, Payment,  AddCard};

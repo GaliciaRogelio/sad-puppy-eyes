@@ -38,12 +38,12 @@ const userSchema = new Schema(
         ref: 'User'
       }
     ],
-    paydetails: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'PayDetails'
-      }
-    ],
+    // paydetails: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'PayDetails'
+    //   }
+    // ],
   },
   {
     toJSON: {
