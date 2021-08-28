@@ -34,12 +34,6 @@ const ReactionForm = ({ postId }) => {
 
   return (
     <div>
-      <p
-        className={`m-0 characterCount ${characterCount === 280 || error ? "text-error" : ""}`}
-      >
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
       <h2 className="donate">Donate to this post?</h2>
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
@@ -67,6 +61,12 @@ const ReactionForm = ({ postId }) => {
           Submit
         </button>
       </form>
+      <p
+        className={`m-0 characterCount ${characterCount === 280 || error ? "text-error" : ""}`}
+      >
+        {characterCount}/280 characters
+        {error && <span className="ml-2"></span>}
+      </p>
     </div>
   );
 };

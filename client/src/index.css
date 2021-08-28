@@ -76,14 +76,15 @@ h6 {
   background-repeat: no-repeat;
   height: 8rem;
   width: 8rem;
-  padding-right: 20px;
-  overflow: hidden;
-  transition: transform .5s ease;
+  padding-right: 30px;
+  transform: scale(1.36);
+  /* overflow: hidden;
+  transition: transform .5s ease; */
 }
 
-#header-img:hover {
-  transform: scale(1.37);
-}
+/* #header-img:hover {
+  transform: scale(1.36);
+} */
 
 h1 {
 
@@ -179,6 +180,7 @@ nav a:hover {
 .characterCount {
   display: flex;
   justify-content: center;
+  padding-bottom: 1rem;
 }
 
 .postListTitle {
@@ -243,7 +245,12 @@ nav a:hover {
 }
 
 .profile {
-  text-shadow: 2px, 2px rgb(0,0,0,0.9);
+  transition: transform .5s ease;
+}
+
+.profile:hover {
+  font-style: underline;
+  transform: 1.01rem;
 }
 
 .donate {

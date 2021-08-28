@@ -15,7 +15,7 @@ const Header = () => {
           </div>
           <Link to="/">
             <h1>Sad Puppy Eyes</h1>
-            <p>Where Your Four-legged Loves Ones Find the Help They Need</p>
+            <p>Where Your Four-legged Loved Ones Find the Help They Need</p>
           </Link>
         </div>
 
