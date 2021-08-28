@@ -30,28 +30,51 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+   
     friendCount: Int
     thoughts: [Thought]
     friends: [User]
+  }
+
+
+  type PayDetails {
+    _id: ID
+    cardNumber: String
+    expirationDate: String
+    cvv: String
+    firstName: String
+    lastName: String
+    streetFirst: String
+    streetSecond: String
+    city: String
+    state: String
+    postal: String
+  
   }
 
   type Query {
     me: User
     users: [User]
     user(username: String!): User
+   
     thoughts(username: String): [Thought]
     thought(_id: ID!): Thought
     payments(username: String): [Payment]
-    }
+    payDetails(_id: ID!): PayDetails
+  
+
+    
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    
     addThought(thoughtText: String!): Thought
     addPayment(paymentAmount: String!): Payment
     addReaction(postId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
+    addPayDetails(username: String!): PayDetails
   }
 
   type Auth {

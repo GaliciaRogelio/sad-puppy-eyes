@@ -2,7 +2,7 @@ const { User, Thought, Payment } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 //const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-const stripe = require('stripe')(STRIPE_SECRET_KEY);
+//const stripe = require('stripe')(STRIPE_SECRET_KEY);
 
 const resolvers = {
   Query: {
@@ -45,6 +45,12 @@ const resolvers = {
         .populate("payments")
         .populate("thoughts");
     },
+
+    payDetails: async (parent, { _id }) => {
+      return User.find()
+      .select("-__v -password")
+      .populate("paydetails");
+    }
     // checkout: async (parent, args, context) => {
     //   const url = new URL(context.headers.referer).origin;
     //   const order = new Order({ products: args.products });
@@ -89,6 +95,14 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+
+
+    addPayDetails: async (parent, args) => {
+      const user = await PayDetails.create(args);
+      const token = signToken(paydetails);
+
+      return { paydetails };
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

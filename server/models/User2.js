@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const userSchema = new Schema(
+const userSchema2 = new Schema(
   {
     username: {
       type: String,
@@ -9,12 +9,6 @@ const userSchema = new Schema(
       unique: true,
       trim: true
     },
-    // cardNumber: {
-    //   type: String,
-    //   required: false,
-    //   unique: true,
-    //   trim: true
-    // },
     email: {
       type: String,
       required: true,
@@ -53,7 +47,7 @@ const userSchema = new Schema(
 );
 
 // set up pre-save middleware to create password
-userSchema.pre('save', async function(next) {
+userSchema2.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -63,7 +57,7 @@ userSchema.pre('save', async function(next) {
 });
 
 // compare the incoming password with the hashed password
-userSchema.methods.isCorrectPassword = async function(password) {
+userSchema2.methods.isCorrectPassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
 
@@ -71,6 +65,6 @@ userSchema.virtual('friendCount').get(function() {
   return this.friends.length;
 });
 
-const User = model('User', userSchema);
+const User2 = model('User2', userSchema2);
 
-module.exports = User;
+module.exports = User2;

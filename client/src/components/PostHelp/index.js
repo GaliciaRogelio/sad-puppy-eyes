@@ -87,6 +87,7 @@ const ThoughtForm = () => {
         <button className="btn col-12 col-md-3" type="submit">
           Submit
         </button>
+        </form>
         <div className="characterCount">
       <p
         className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
@@ -101,14 +102,15 @@ const ThoughtForm = () => {
         }}
       />
       <button onClick={uploadImage}>Upload Image</button>
-
+</div>
       <Image style={{width: 300 }} cloudName="rogeliog" publicId="https://res.cloudinary.com/rogeliog/image/upload/v1629913792/aaxj0rfqiinbkb0u2nkm.jpg" /> 
-      <form
+    
+      {/* <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Need help with your pet? post here!"
+          placeholder="Need help with your pet? Woof here!"
           value={thoughtText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
@@ -118,11 +120,11 @@ const ThoughtForm = () => {
         </button>
 
       <Image style={{width: 300, height: 300}} cloudName="rogeliog" publicId="https://res.cloudinary.com/rogeliog/image/upload/v1629913792/aaxj0rfqiinbkb0u2nkm.jpg" />
+      </form> */}
       </div>
+    
+  )};
 
-      </form>
-      </div>
-  );
-};
+
 
 export default ThoughtForm;

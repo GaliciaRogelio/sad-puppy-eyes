@@ -10,6 +10,7 @@ const payDetailsSchema = new Schema(
         },
         expirationDate: {
             type: Date
+         //   format: 'MM-YYYY'
         //     validate: [
         //         validator({
         //           validator: 'isDate',
@@ -59,7 +60,13 @@ const payDetailsSchema = new Schema(
             minlength: 1,
             maxlength: 12
         }
-    });
+    },
+    {
+         toJSON: {
+          virtuals: true
+         }
+    }
+    );
 
-
-    module.exports = PayDescription;
+    const PayDetails = model('PayDetails', payDetailsSchema);
+    module.exports = PayDetails;

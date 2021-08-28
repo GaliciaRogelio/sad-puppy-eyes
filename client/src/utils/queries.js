@@ -78,9 +78,39 @@ export const QUERY_USER = gql`
         createdAt
         reactionCount
       }
+      paydetails {
+        _id
+      }
     }
   }
 `;
+
+// export const QUERY_ADD_CARD = gql`
+//   query user($username: String!) {
+//     user(username: $username) {
+//       _id
+//       username
+//       email
+//       friendCount
+//       friends {
+//         _id
+//         username
+//       }
+//       thoughts {
+//         _id
+//         thoughtText
+//         createdAt
+//         reactionCount
+//       }
+//       paydetails {
+//         _id
+//       }
+//     }
+//   }
+// `;
+
+
+
 
 export const QUERY_ME = gql`
   {
@@ -124,31 +154,28 @@ export const QUERY_ME_BASIC = gql`
   }
 `;
 
-export const QUERY_CHECKOUT = gql`
-  query getCheckout($products: [ID]!) {
-    checkout(products: $products) {
-      session
-    }
-  }
-`;
-
-// export const QUERY_PAYTYPE = gql`
-//   query PAYTYPE($username: String!) {
-//     user(username: $username) {
-//       _id
-//       username
-//       email
-//       friendCount
-//       friends {
-//         _id
-//         username
-//       }
-//       thoughts {
-//         _id
-//         thoughtText
-//         createdAt
-//         reactionCount
-//       }
+// export const QUERY_CHECKOUT = gql`
+//   query getCheckout($products: [ID]!) {
+//     checkout(products: $products) {
+//       session
 //     }
 //   }
 // `;
+
+export const QUERY_PAYTYPE = gql`
+query paydetails($id: ID!) {
+  paydetails(_id: $id) {
+    _id
+    cardnumber
+    expirationDate
+    cvv
+    firstName
+    lastName
+    streetFirst
+    streetSecond
+    city
+    state
+    postal  
+    }
+  }
+`;

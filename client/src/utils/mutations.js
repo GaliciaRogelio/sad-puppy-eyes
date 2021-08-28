@@ -24,6 +24,20 @@ export const ADD_USER = gql`
   }
 `;
 
+export const ADD_CARD = gql`
+  mutation addCard($username: String!, $email: String!, $password: String!, $cardNumber: String!) {
+    addCard(username: $username, email: $email, password: $password, cardNumber: $cardNumber) {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+
+
 export const ADD_FRIEND = gql`
   mutation addFriend($id: ID!) {
     addFriend(friendId: $id) {
@@ -80,7 +94,7 @@ export const ADD_PAYMENT = gql`
 `;
 
 export const ADD_PAYTYPE = gql`
-  mutation addPaymentType($cardNumber: Number!, 
+  mutation addPayDetails($cardNumber: Number!, 
                           $expirationDate: Date!,
                           $cvv: String!,
                           $firstName: String!,
@@ -90,7 +104,7 @@ export const ADD_PAYTYPE = gql`
                           $city: String!,
                           $state: String!,
                           $postal: String!) {
-      addPaymentType(cardNumber: $cardNumber, 
+      addPayDetails(cardNumber: $cardNumber, 
         expirationDate: $expirationDate,
         cvv: $cvv,
         firstName: $firstName,
