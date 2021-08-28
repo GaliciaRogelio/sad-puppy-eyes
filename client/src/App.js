@@ -16,7 +16,7 @@ import SinglePost from "./pages/SinglePost";
 import SinglePayment from "./pages/SinglePayment";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
-// import AddCard from "./pages/AddCard";
+import AddCard from "./pages/AddCard";
 import PaymentDetails from "./pages/PaymentDetails";
 
 
@@ -56,7 +56,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              {/* <Route exact path="/card" component={AddCard} /> */}
+              <Route exact path="/card" component={AddCard} />
               {/* <Route exact path="/card" component={PaymentDetails} /> */}
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/thought/:id" component={SinglePost
