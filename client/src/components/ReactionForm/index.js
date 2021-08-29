@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_REACTION } from "../../utils/mutations";
+import { Link } from "react-router-dom";
+
+
 
 const ReactionForm = ({ postId }) => {
   const [reactionBody, setBody] = useState("");
@@ -30,27 +33,30 @@ const ReactionForm = ({ postId }) => {
     } catch (e) {
       console.error(e);
     }
+  
   };
+
+
 
   return (
     <div>
       <h2 className="donate">Donate to this post?</h2>
+          <Link to="/checkout"> 
+            <button className="btn col-12 col-md-2">$10</button>
+           </Link>
+           <Link to="/checkout2"> 
+            <button className="btn col-12 col-md-2">$25</button>
+           </Link>  
+           <Link to="/checkout3"> 
+            <button className="btn col-12 col-md-2">$50</button>
+           </Link>  
+           <Link to="/checkout4"> 
+            <button className="btn col-12 col-md-2">$100</button>
+           </Link>    
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
-      <button className="btn col-12 col-md-2" type="submit">
-          $25
-        </button>
-      <button className="btn col-12 col-md-2" type="submit">
-          $35
-        </button>
-      <button className="btn col-12 col-md-2" type="submit">
-          $50
-        </button>
-      <button className="btn col-12 col-md-2" type="submit">
-          $100
-        </button>
         <textarea
           placeholder="Share your thoughts"
           value={reactionBody}

@@ -19,6 +19,9 @@ import Signup from "./pages/Signup";
 //import AddCard from "./pages/AddCard";
 import PaymentDetails from "./pages/PaymentDetails";
 import Checkout from "./pages/PaymentCheckout";
+import Checkout2 from "./pages/PaymentCheckout2";
+import Checkout3 from "./pages/PaymentCheckout3";
+import Checkout4 from "./pages/PaymentCheckout4";
 
 
 import Header from "./components/Header";
@@ -58,6 +61,9 @@ function App() {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/checkout" component={Checkout} />
+              <Route exact path="/checkout2" component={Checkout2} />
+              <Route exact path="/checkout3" component={Checkout3} />
+              <Route exact path="/checkout4" component={Checkout4} />
               {/* <Route exact path="/card" component={AddCard} /> */}
               {/* <Route exact path="/card" component={PaymentDetails} /> */}
               <Route exact path="/profile/:username?" component={Profile} />
