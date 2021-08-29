@@ -1,13 +1,6 @@
 import { useState } from 'react';
-import { useParams } from "react-router-dom";
 import { loadStripe } from '@stripe/stripe-js';
-import { QUERY_PAYMENT, QUERY_THOUGHT } from "../utils/queries";
-
-import ReactionList from "../components/ReactionList";
-import ReactionForm from "../components/ReactionForm";
-import auth from "../utils/auth";
 require('dotenv').config();
-
 //const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 // const stripePromise = loadStripe(
@@ -17,7 +10,7 @@ require('dotenv').config();
 
 const stripePromise = loadStripe('pk_test_51JSANPInUtp60H3yifEcWiP5Cd3JYJxkkTz6WjNqVkjlNvEG2xHEMBU0VQEIVfpjACiUr0j12SNsopWO5tLEcDmY00f7P2Qu1s');
 
-const CheckoutPage = () => {
+const CheckoutPage3 = () => {
     const [stripeError, setStripeError] = useState();
     const [loading, setLoading] = useState();
 
@@ -28,7 +21,7 @@ const CheckoutPage = () => {
         const { error } = await stripe.redirectToCheckout({  
             lineItems: [
                 {
-                    price: 'price_1JSCSPInUtp60H3yUp3Wyfnl',
+                    price: 'price_1JTfA6InUtp60H3ySBd67Z0e',
                     quantity: 1,
                 },
             ],
@@ -45,19 +38,18 @@ const CheckoutPage = () => {
     };
   
     return (
-       
         <>
         {stripeError && <p style={{ color: "red" }}>{stripeError}</p>}
-       <div>
+        <div>
            Thank you for your generosity! 
-           Please click the button below to donate $10!
+           Please click the button below to donate $50!
        </div>
         <button className="btn col-12 col-md-2" role="link" onClick={handleClick} disabled={loading}>
-        Donate Today!
+         Donate Today!
         </button>
         </>
     );
 };
 
 
-export default CheckoutPage;
+export default CheckoutPage3;
