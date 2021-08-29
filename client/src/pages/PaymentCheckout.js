@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
+require('dotenv').config();
 //const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 // const stripePromise = loadStripe(
-//     `${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}`
+//     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 
 // );
 
 const stripePromise = loadStripe('pk_test_51JSANPInUtp60H3yifEcWiP5Cd3JYJxkkTz6WjNqVkjlNvEG2xHEMBU0VQEIVfpjACiUr0j12SNsopWO5tLEcDmY00f7P2Qu1s');
 
-const IndexPage = () => {
+const CheckoutPage = () => {
     const [stripeError, setStripeError] = useState();
     const [loading, setLoading] = useState();
 
@@ -22,6 +23,7 @@ const IndexPage = () => {
             lineItems: [
                 {
                     // price: `${process.env.NEXT_PUBLIC_STRIPE_PRICE_ID}`,
+                   // statement_descriptor:
                     price: 'price_1JSCSPInUtp60H3yUp3Wyfnl',
                     quantity: 1,
                 },
@@ -39,13 +41,25 @@ const IndexPage = () => {
 
     return (
         <>
-        {/* {stripeError && <p style={{ color: "red" }}>{StripeError}</p>} */}
+        {stripeError && <p style={{ color: "red" }}>{stripeError}</p>}
 
         <button role="link" onClick={handleClick} disabled={loading}>
             Go to Checkout
+        </button>
+        <button className="btn col-12 col-md-2" type="submit">
+          $25
+        </button>
+      <button className="btn col-12 col-md-2" type="submit">
+          $35
+        </button>
+      <button className="btn col-12 col-md-2" type="submit">
+          $50
+        </button>
+      <button className="btn col-12 col-md-2" type="submit">
+          $100
         </button>
         </>
     );
 };
 
-export default IndexPage;
+export default CheckoutPage;
