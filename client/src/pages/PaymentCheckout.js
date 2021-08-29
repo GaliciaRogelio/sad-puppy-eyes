@@ -41,7 +41,7 @@ const IndexPage = () => {
         <>
         {/* {stripeError && <p style={{ color: "red" }}>{StripeError}</p>} */}
 
-        <button role="link" onClick={handleClick} disabled={loading}>
+        <button className="btn col-12 col-md-2" role="link" onClick={handleClick} disabled={loading}>
             Go to Checkout
         </button>
         </>
