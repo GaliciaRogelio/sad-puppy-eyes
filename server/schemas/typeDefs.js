@@ -48,8 +48,7 @@ const typeDefs = gql`
     thought(_id: ID!): Thought
     payments(username: String): [Payment]
     checkout(products: [ID]!): Checkout
-
-    
+  
   }
 
   type Mutation {
