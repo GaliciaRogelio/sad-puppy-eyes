@@ -25,6 +25,8 @@
     "concurrently": "^6.2.1"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.4.1",
+    "@stripe/stripe-js": "^1.17.1",
     "apollo-server-express": "^2.25.2",
     "next": "^11.1.0"
   }
