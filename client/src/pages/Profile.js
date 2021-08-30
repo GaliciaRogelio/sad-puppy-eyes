@@ -51,7 +51,7 @@ const Profile = () => {
   return (
     <div>
       <div className="flex-row mb-3">
-        <h2 className="profile p-3 display-inline-block">
+        <h2 className="profileTitle p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
         {userParam && (
