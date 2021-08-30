@@ -93,6 +93,7 @@ const ThoughtForm = () => {
     }
   };
 
+
   return (
     <div>
       <div className="imgDiv">
