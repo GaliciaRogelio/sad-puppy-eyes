@@ -34,6 +34,11 @@ const typeDefs = gql`
     thoughts: [Thought]
     friends: [User]
   }
+  
+  type Checkout {
+    session: ID
+  }
+ 
 
   type Query {
     me: User
@@ -42,7 +47,8 @@ const typeDefs = gql`
     thoughts(username: String): [Thought]
     thought(_id: ID!): Thought
     payments(username: String): [Payment]
-    }
+    checkout(products: [ID]!): Checkout
+  
   }
 
   type Mutation {
@@ -52,6 +58,7 @@ const typeDefs = gql`
     addPayment(paymentAmount: String!): Payment
     addReaction(postId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
+
   }
 
   type Auth {

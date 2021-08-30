@@ -9,6 +9,12 @@ const userSchema = new Schema(
       unique: true,
       trim: true
     },
+    // cardNumber: {
+    //   type: String,
+    //   required: false,
+    //   unique: true,
+    //   trim: true
+    // },
     email: {
       type: String,
       required: true,
@@ -31,7 +37,13 @@ const userSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: 'User'
       }
-    ]
+    ],
+    // paydetails: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'PayDetails'
+    //   }
+    // ],
   },
   {
     toJSON: {

@@ -4,7 +4,7 @@ import { ADD_PAYTYPE } from "../utils/mutations";
 import auth from "../utils/auth";
 
 
-  const PaymentDetails = () => {
+  const PayDetails = () => {
     const [formState, setFormState] = useState({
       cardNumber: "",
       expirationDate: "",
@@ -18,7 +18,7 @@ import auth from "../utils/auth";
       postal: "",
     });
 
-  const [addPayType, { error }] = useMutation(ADD_PAYTYPE);
+  const [addPayDetails, { error }] = useMutation(ADD_PAYTYPE);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -36,12 +36,12 @@ import auth from "../utils/auth";
 
     // use try/catch instead of promises to handle errors
     try {
-      // execute addUser mutation and pass in variable data from form
-      const { data } = await addPayType({
+      // execute addPayType mutation and pass in variable data from form
+      const { data } = await addPayDetails({
         variables: { ...formState },
       });
 
-      auth.login(data.addPayType.token);
+    //  auth.login(data.addPayType.token);
       // console.log(data);
     } catch (e) {
       console.error(e);
@@ -55,15 +55,7 @@ import auth from "../utils/auth";
           <h4 className="card-header">Add Payment Details</h4>
           <div className="card-body">
             <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Your username"
-                name="username"
-                type="username"
-                id="username"
-                value={formState.username}
-                onChange={handleChange}
-              />
+
               <input
                 className="form-input"
                 placeholder="Your card number"
@@ -77,7 +69,7 @@ import auth from "../utils/auth";
                 className="form-input"
                 placeholder="expiration date"
                 name="expirationDate"
-                type="expirationDate"
+                type="date"
                 id="expirationDate"
                 value={formState.expirationDate}
                 onChange={handleChange}
@@ -111,7 +103,7 @@ import auth from "../utils/auth";
               />
               <input
                 className="form-input"
-                placeholder="Street address 1"
+                placeholder="Billing address 1"
                 name="streetFirst"
                 type="streetFirst"
                 id="streetFirst"
@@ -120,7 +112,7 @@ import auth from "../utils/auth";
               />
               <input
                 className="form-input"
-                placeholder="Street address 2"
+                placeholder="Billing address 2"
                 name="streetSecond"
                 type="streetSecond"
                 id="streetSecond"
@@ -166,4 +158,4 @@ import auth from "../utils/auth";
   );
 };
 
-export default PaymentDetails;
+export default PayDetails;
