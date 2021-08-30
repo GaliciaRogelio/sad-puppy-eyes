@@ -18,6 +18,12 @@ Sign up to create an account, log in, add friends, and make posds. Your posts ca
 ## Screenshot
 [Screenshot](assets/images/live-screenshot.png)
 
+## Payment Instructions
+When you are taken to the Stripe Checkout Page, their Sandbox requires that the card number be '4242 4242 4242 4242' -- all other details do not matter.
+
+See below image as an example:
+[Screenshot](assets/images/stripe-checkout.jpeg)
+
 ## Live App
 [Heroku Link](http://sad-puppy-eyes.herokuapp.com/)
 
