@@ -3,10 +3,7 @@
   --secondary: #1d263b;
   --tertiary: #5c6784;
   --quatrinary: #4cb963;
-
-  --light: rgb(87, 73, 73);
-
-
+  --light: white;
   --dark: black;
   --error: rgb(255, 51, 0);
   --border-radius: 0.3rem;
@@ -167,6 +164,10 @@ nav a:hover {
   cursor: pointer;
 }
 
+.pill {
+  font-size: 1.1rem;
+}
+
 .btn:hover,
 .pill:hover {
   color: var(--secondary);
@@ -177,10 +178,17 @@ nav a:hover {
   display: inline;
 }
 
+.donate-btn {
+  margin: .5rem;
+}
+
 .characterCount {
   display: flex;
-  justify-content: center;
-  padding-bottom: 1rem;
+  justify-content: flex-end;
+  font-size: x-small;
+  font-style: italic;
+  padding-right: 10rem;
+  padding-bottom: .3rem;
 }
 
 .postListTitle {
@@ -189,8 +197,36 @@ nav a:hover {
   color: var(--primary);
 }
 
+.donateDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.donateMsg {
+  padding: 20px;
+  justify-content: center;
+}
+
+.imgDiv {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+
+.imgDiv img {
+  transition: transform .5s ease;
+}
+
+.imgDiv img:hover {
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
 /* CARDS */
 .card {
+  width: 100%;
   margin: 0 0 20px 0;
   border: 3px solid var(--secondary);
   border-radius: var(--border-radius);
@@ -244,30 +280,26 @@ nav a:hover {
   padding: 1rem;
 }
 
-.profileTitle {
-  transition: transform .5s ease;
-}
-
-.profileTitle:hover {
-  font-style: underline;
-  transform: 1.01rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8)
-}
-
-.donate {
+.donate, .profileTitle {
   padding: 1rem;
   font-style: italic;
   transition: transform .5s ease;
 }
 
-.donate:hover {
+.donate:hover, .profileTitle:hover {
   transform: scale(1.03);
 }
 
 /* FORM */
 
 form {
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
+}
+
+.formStyle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .form-label,
@@ -282,6 +314,21 @@ form {
 }
 
 .form-input {
+  padding: 0.75rem;
+  margin: 0.2rem 0;
+  font-size: 1.2rem;
+  border: 2px solid var(--secondary);
+  border-radius: var(--border-radius);
+}
+
+#fileInput {
+  width: 400px;
+  padding: 0.5rem;
+  margin: 0.3rem;
+  border: none;
+}
+
+.signup-form-input {
   width: 100%;
   padding: 0.75rem;
   margin: 0.2rem 0;
